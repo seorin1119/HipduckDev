@@ -53,7 +53,7 @@ function loadHTMLResource(url, targetElementId) {
 document.addEventListener('DOMContentLoaded', () => {
     const htmlFiles = [
         //{ url: "htmlname.html", id: "idname" } 형식으로 추가 가능
-        { url: "src/HipduckGuide.html", id: "HipduckGuide" }
+        { url: "https://raw.githubusercontent.com/seorin1119/HipduckDev/main/src/HipduckGuide.html", id: "HipduckGuide" }
     ];
 
     htmlFiles.reduce((chain, file) => {

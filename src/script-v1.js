@@ -224,34 +224,33 @@ document.addEventListener('DOMContentLoaded', function () {
     // 작업영역 이벤트 설정
     function handleMouseEnterWorkArea() {
         SrWorkGuideArea.forEach(el => el.classList.add('bg-indigo-50'));
-        SrCutGuideArea.forEach(el => el.classList.add('bg-indigo-50'));
-        SrSafeGuideArea.forEach(el => el.classList.add('bg-indigo-50'));
-        SrWorkGuideDic.forEach(el => el.classList.add('bg-indigo-50'));
-        SrCutGuideArea.forEach(el => el.classList.add('border-gray-500'));
-        SrSafeGuideArea.forEach(el => el.classList.add('border-gray-500'));
-        SrCutGuideArea.forEach(el => el.classList.add('border-dashed'));
-        SrSafeGuideArea.forEach(el => el.classList.add('border-dashed'));
-        SrWorkGuideDic.forEach(el => el.classList.add('opacity-100'));
+        SrCutGuideArea.forEach(el => el.classList.add('bg-indigo-50', 'border-gray-500', 'border-dashed'));
+        SrSafeGuideArea.forEach(el => el.classList.add('bg-indigo-50', 'border-gray-500', 'border-dashed'));
+        SrWorkGuideDic.forEach(el => el.classList.add('bg-indigo-50', 'opacity-100'));
+        SrWorkGuideArea.forEach(el => el.classList.remove('bg-white'));
+        SrCutGuideArea.forEach(el => el.classList.remove('bg-red-50', 'border-solid', 'border-red-300'));
+        SrSafeGuideArea.forEach(el => el.classList.remove('bg-green-50', 'border-solid', 'border-green-300'));
+        SrWorkGuideDic.forEach(el => el.classList.remove('bg-white', 'opacity-0'));
     }
 
     // 제단영역 이벤트 설정
     function handleMouseEnterCutArea() {
         SrCutGuideArea.forEach(el => el.classList.add('bg-red-100'));
-        SrSafeGuideArea.forEach(el => el.classList.add('bg-red-100'));
-        SrCutGuideDic.forEach(el => el.classList.add('bg-red-100'));
-        SrSafeGuideArea.forEach(el => el.classList.add('border-dashed'));
-        SrSafeGuideArea.forEach(el => el.classList.add('border-gray-500'));
-        SrCutGuideDic.forEach(el => el.classList.add('opacity-100'));
+        SrSafeGuideArea.forEach(el => el.classList.add('bg-red-100', 'border-dashed', 'border-gray-500'));
+        SrCutGuideDic.forEach(el => el.classList.add('bg-red-100', 'opacity-100'));
+        SrCutGuideArea.forEach(el => el.classList.remove('bg-red-50'));
+        SrSafeGuideArea.forEach(el => el.classList.remove('bg-green-50', 'border-solid', 'border-green-300'));
+        SrCutGuideDic.forEach(el => el.classList.remove('bg-white', 'opacity-0'));
     }
 
     // 안전영역 이벤트 설정
     function handleMouseEnterSafeArea() {
         SrSafeGuideArea.forEach(el => el.classList.add('bg-green-100'));
-        SrSafeGuideDic.forEach(el => el.classList.add('bg-green-100'));
-        SrCutGuideArea.forEach(el => el.classList.remove('bg-red-50'));
-        SrCutGuideArea.forEach(el => el.classList.add('boerder-gray-500'));
-        SrCutGuideArea.forEach(el => el.classList.add('border-dashed'));
-        SrSafeGuideDic.forEach(el => el.classList.add('opacity-100'));
+        SrSafeGuideDic.forEach(el => el.classList.add('bg-green-100', 'opacity-100'));
+        SrCutGuideArea.forEach(el => el.classList.add('border-gray-500', 'border-dashed'));
+        SrCutGuideArea.forEach(el => el.classList.remove('bg-red-50', 'border-solid', 'border-red-300'));
+        SrSafeGuideArea.forEach(el => el.classList.remove('bg-green-50'));
+        SrSafeGuideDic.forEach(el => el.classList.remove('bg-white', 'opacity-0'));
     }
 
     // 각 NodeList에 대해 이벤트 리스너 추가
