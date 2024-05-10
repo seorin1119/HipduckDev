@@ -8,7 +8,7 @@
 .LSOverride
 
 #Ftp 제외
-vscode/sftp.json
+.vscode/sftp.json
 
 #tailwind용 파일 제외
 tailwind.config.js
