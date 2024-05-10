@@ -8,15 +8,14 @@
 .LSOverride
 
 #Ftp 제외
-.vscode/sftp.json
+vscode/sftp.json
 
 #tailwind용 파일 제외
-.tailwind.config.js
-.src/input.css
+tailwind.config.js
+src/input.css
 
 # Icon must end with two \r
 Icon
-
 
 # Thumbnails
 ._*
