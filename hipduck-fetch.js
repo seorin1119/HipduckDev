@@ -66,3 +66,5 @@ function executeScripts(doc) {
 
 // Example usage: load HipduckGuide.html and its resources into the 'HipduckGuide' div
 loadHTMLContentWithResources('/src/HipduckGuide.html', 'HipduckGuide');
+loadHTMLContentWithResources('/src/HipduckNoti.html', 'HipduckNoti');
+
