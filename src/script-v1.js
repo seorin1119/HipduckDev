@@ -1,6 +1,17 @@
 console.log('Hipduck Guide JS Loaded!');
 
-document.addEventListener('DOMContentLoaded', function () {
+function initializeApplication() {
+    console.log('Initializing application functionalities...');
+    // Place your initialization code here
+    // Example: initSliders();
+    // Example: setupEventListeners();
+}
+
+function handleError(error) {
+    console.error('Error during script execution:', error);
+}
+
+(function () {
     //가이드 배경 텍스트 스크롤
     const sliderTexts = document.querySelectorAll('.Guide-parallel');
     const parallelArr = 'HIPDUCK GUIDE HIPDUCK GUIDE HIPDUCK GUIDE'.split(' ');
@@ -273,5 +284,5 @@ document.addEventListener('DOMContentLoaded', function () {
     allElements.forEach(element => {
         element.addEventListener('mouseleave', () => restoreClasses(allElements, originalClasses));
     });
-});
+})();
 
