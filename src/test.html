@@ -1,14 +1,122 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hipduck</title>
+
+    <!-- 스타일 시트 -->
+    <link rel="stylesheet" href="/src/style-v1.css" />
+
+    <!-- --------------------------------------------------------------------------------------- -->
+    <!-- 테일윈드 임포트 -->
+    <link rel="stylesheet" href="/src/output.css">
+    <!-- 에니메이트 css 임포트 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- 어도비 웹폰트 임포트 -->
+    <link rel="stylesheet" href="https://use.typekit.net/tbw3kzi.css">
+    <!-- --------------------------------------------------------------------------------------- -->
 </head>
 
 <body>
-    <p>test</p>
+    <div class="grid max-w-6xl grid-cols-1 gap-6 p-4 mx-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div
+            class="overflow-hidden transition-all duration-300 border rounded-lg shadow-md cursor-pointer bg-card text-card-foreground group hover:scale-105">
+            <a download="" href="#">
+                <div class="relative">
+                    <img src="/placeholder.svg" alt="Template 1" width="400" height="300"
+                        class="object-cover w-full h-48" style="aspect-ratio: 400 / 300; object-fit: cover;" />
+                    <div
+                        class="absolute inset-0 flex items-center justify-center transition-opacity duration-300 opacity-0 bg-black/50 group-hover:opacity-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="w-8 h-8 text-white">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" x2="12" y1="15" y2="3"></line>
+                        </svg>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-semibold tracking-tight whitespace-nowrap">Template 1</h3>
+                    <p class="mt-2 text-sm text-gray-500">A clean and modern template for your next project.</p>
+                </div>
+            </a>
+        </div>
+        <div
+            class="overflow-hidden transition-all duration-300 border rounded-lg shadow-md cursor-pointer bg-card text-card-foreground group hover:scale-105">
+            <a download="" href="#">
+                <div class="relative">
+                    <img src="/placeholder.svg" alt="Template 2" width="400" height="300"
+                        class="object-cover w-full h-48" style="aspect-ratio: 400 / 300; object-fit: cover;" />
+                    <div
+                        class="absolute inset-0 flex items-center justify-center transition-opacity duration-300 opacity-0 bg-black/50 group-hover:opacity-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="w-8 h-8 text-white">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" x2="12" y1="15" y2="3"></line>
+                        </svg>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-semibold tracking-tight whitespace-nowrap">Template 2</h3>
+                    <p class="mt-2 text-sm text-gray-500">A minimalist template perfect for personal or business use.
+                    </p>
+                </div>
+            </a>
+        </div>
+        <div
+            class="overflow-hidden transition-all duration-300 border rounded-lg shadow-md cursor-pointer bg-card text-card-foreground group hover:scale-105">
+            <a download="" href="#">
+                <div class="relative">
+                    <img src="/placeholder.svg" alt="Template 3" width="400" height="300"
+                        class="object-cover w-full h-48" style="aspect-ratio: 400 / 300; object-fit: cover;" />
+                    <div
+                        class="absolute inset-0 flex items-center justify-center transition-opacity duration-300 opacity-0 bg-black/50 group-hover:opacity-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="w-8 h-8 text-white">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" x2="12" y1="15" y2="3"></line>
+                        </svg>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-semibold tracking-tight whitespace-nowrap">Template 3</h3>
+                    <p class="mt-2 text-sm text-gray-500">A versatile template that can be used for various purposes.
+                    </p>
+                </div>
+            </a>
+        </div>
+        <div
+            class="overflow-hidden transition-all duration-300 border rounded-lg shadow-md cursor-pointer bg-card text-card-foreground group hover:scale-105">
+            <a download="" href="#">
+                <div class="relative">
+                    <img src="/placeholder.svg" alt="Template 4" width="400" height="300"
+                        class="object-cover w-full h-48" style="aspect-ratio: 400 / 300; object-fit: cover;" />
+                    <div
+                        class="absolute inset-0 flex items-center justify-center transition-opacity duration-300 opacity-0 bg-black/50 group-hover:opacity-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="w-8 h-8 text-white">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" x2="12" y1="15" y2="3"></line>
+                        </svg>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-semibold tracking-tight whitespace-nowrap">Template 4</h3>
+                    <p class="mt-2 text-sm text-gray-500">A versatile template that can be used for various purposes.
+                    </p>
+                </div>
+            </a>
+        </div>
+    </div>
 </body>
 
 </html>

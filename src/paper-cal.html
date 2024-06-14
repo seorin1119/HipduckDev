@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기</title>
+
+    <!-- 스타일 시트 -->
+    <link rel="stylesheet" href="/Product%20detail%20guide/src/style-v1.css" />
+    <!-- 테일윈드 임포트 -->
+    <link rel="stylesheet" href="/Product%20detail%20guide/src/output.css">
+    <!-- 어도비 웹폰트 임포트 -->
+    <link rel="stylesheet" href="https://use.typekit.net/tbw3kzi.css">
+    <!-- --------------------------------------------------------------------------------------- -->
+
+</head>
+
+<body>
+    <div style="max-width : 600px;">
+        <div class="PaperCal h-48 rounded-md bg-hipduck self-center p-4 sm:p-6 bg-stone-800 font-light hidden">
+            <div class="grid grid-cols-12 gap-2 sm:grid-col-12 sm:gap-4 h-full">
+                <div class="col-span-2 sm:col-span-2 text-stone-200 self-center text-xs sm:text-base">
+                    <p> 가로 길이 </p>
+                </div>
+                <div class="w-full col-span-4 sm:col-span-4 self-center">
+                    <div class="relative rounded shadow-sm">
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2 sm:pr-3">
+                            <span class="text-gray-500 text-xs sm:text-sm">mm</span>
+                        </div>
+                        <input name="print-width" oninput="valiCalInputWidth(this)" id="print-width"
+                            class="w-full bg-stone-800 border border-stone-800 py-1 px-1 sm:py-1.5 sm:px-2 text-stone-200 placeholder:text-gray-500 focus:border focus:border-stone-400 text-xs sm:text-sm leading-6 appearance-none focus-none"
+                            placeholder="최대 : 250" type="number" max="250" />
+                    </div>
+                </div>
+                <div class="col-span-2 sm:col-span-2 text-stone-200 self-center text-xs sm:text-base">
+                    <p> 세로 길이 </p>
+                </div>
+                <div class="w-full col-span-4 sm:col-span-4 self-center">
+                    <div class="relative rounded-md shadow-sm">
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2 sm:pr-3">
+                            <span class="text-gray-500 text-xs sm:text-sm">mm</span>
+                        </div>
+                        <input name="print-height" oninput="valiCalInputHeight(this)" id="print-height"
+                            class="w-full bg-stone-800 border border-stone-800 py-1 px-1 sm:py-1.5 sm:px-2 text-stone-200 placeholder:text-gray-500 focus:border focus:border-stone-400 text-xs sm:text-sm leading-6 appearance-none focus-none"
+                            placeholder="최대 : 400" type="number" max="400" />
+                    </div>
+                </div>
+                <div
+                    class="relative inline-block col-span-3 sm:col-span-3 flex group items-center justify-center text-stone-800 mx-0.5 my-1 bg-white rounded-full text-xs sm:text-sm hover:text-stone-200 hover:bg-black hover:ease-in-out hover:duration-100">
+                    <button>
+                        주의사항
+                    </button>
+                    <div
+                        class="absolute z-10 hidden group-hover:block bg-white text-black text-xs rounded-lg py-2 px-3 bottom-full left-0 mb-2 w-64 sm:w-80">
+                        * 본 계산기는 수량확인을 돕기위한 것이며, 직접 배치하는 것과 수량이 다를 수 있습니다.<br>
+                        * 계산기는 최소 수량으로 계산됩니다.<br>
+                        * 템플릿을 받아 직접 배치하시는 것을 권장합니다.<br>
+                    </div>
+                </div>
+                <div class="text-white self-center font-light text-xs sm:text-base">
+                    A3
+                </div>
+                <div id="CalresultA3"
+                    class="col-span-2 h-full Calresult text-stone-200 text-right sm:pr-2 flex items-center justify-end border-r border-stone-600 text-xs sm:text-base">
+                </div>
+                <div class="text-white self-center font-light text-xs sm:text-base">
+                    A4
+                </div>
+                <div id="CalresultA4"
+                    class="col-span-2 h-full Calresult text-stone-200 text-right sm:pr-2 flex items-center justify-end border-r border-stone-600 text-xs sm:text-base">
+                </div>
+                <div class="text-white self-center font-light text-xs sm:text-base">
+                    A5
+                </div>
+                <div id="CalresultA5"
+                    class="col-span-2 h-full Calresult text-stone-200 text-right sm:pr-2 flex items-center justify-end text-xs sm:text-base">
+                </div>
+                <div class="col-span-12">
+                    <button id="st-cal"
+                        class="bg-white w-full h-full rounded-md font-bold text-xs sm:text-base hover:ease-in-out hover:duration-200 hover:text-stone-200 hover:bg-black"
+                        onclick="calculate()">계산하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 계산기 자바스크립트 -->
+    <script>
+        function valiCalInputWidth(input) {
+            const value = parseInt(input.value);
+            if (value > 250) {
+                input.value = 250;
+                input.classList.add('text-red-500', 'animate-shake');
+                setTimeout(() => {
+                    input.classList.remove('text-red-500', 'animate-shake');
+                }, 500);
+            }
+        }
+        function valiCalInputHeight(input) {
+            const value = parseInt(input.value);
+            if (value > 400) {
+                input.value = 400;
+                input.classList.add('text-red-500', 'animate-shake');
+                setTimeout(() => {
+                    input.classList.remove('text-red-500', 'animate-shake');
+                }, 500);
+            }
+        }
+
+        function calculate() {
+            const printWidth = parseInt(document.getElementById('print-width').value);
+            const printHeight = parseInt(document.getElementById('print-height').value);
+
+            if (isNaN(printWidth) || isNaN(printHeight) || printWidth <= 0 || printHeight <= 0) {
+                document.getElementById('result').innerText = '유효한 수치를 입력해 주세요.';
+                return;
+            }
+
+            const gap = 5;
+            const sizes = {
+                A3: { width: 297, height: 420 },
+                A4: { width: 210, height: 297 },
+                A5: { width: 148, height: 210 }
+            };
+
+            for (const [key, size] of Object.entries(sizes)) {
+                const cols = Math.floor(size.width / (printWidth + gap));
+                const rows = Math.floor(size.height / (printHeight + gap));
+                const maxCount = cols * rows;
+
+                document.getElementById(`Calresult${key}`).innerText = `${maxCount}개`;
+            }
+        }
+    </script>
+</body>
+
+</html>

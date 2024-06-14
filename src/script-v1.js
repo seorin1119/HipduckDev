@@ -210,17 +210,28 @@ function handleError(error) {
         activateAiGuide();
     }
 
-    //재단 영역 가이드 색상 변경용 스크립트
+    // 클래스 추가 함수
+    function addClasses(elements, ...classes) {
+        elements.forEach(el => el.classList.add(...classes));
+    }
+
+    // 클래스 제거 함수
+    function removeClasses(elements, ...classes) {
+        elements.forEach(el => el.classList.remove(...classes));
+    }
+
     function addMouseEnterListeners(elements, callback) {
         elements.forEach(element => {
             element.addEventListener('mouseenter', callback);
         });
     }
-    // 각 NodeList의 요소에 대해 원래 클래스를 저장하는 함수
+
+    // 각 요소에 대해 원래 클래스를 저장하는 함수
     function saveOriginalClasses(elements) {
         const originalClasses = {};
-        elements.forEach(element => {
-            originalClasses[element.classList[0]] = element.className; // 클래스의 첫 번째 이름을 키로 사용
+        elements.forEach((element, index) => {
+            element.dataset.originalIndex = index;
+            originalClasses[index] = element.className;
         });
         return originalClasses;
     }
@@ -234,34 +245,37 @@ function handleError(error) {
 
     // 작업영역 이벤트 설정
     function handleMouseEnterWorkArea() {
-        SrWorkGuideArea.forEach(el => el.classList.add('bg-indigo-50'));
-        SrCutGuideArea.forEach(el => el.classList.add('bg-indigo-50', 'border-gray-500', 'border-dashed'));
-        SrSafeGuideArea.forEach(el => el.classList.add('bg-indigo-50', 'border-gray-500', 'border-dashed'));
-        SrWorkGuideDic.forEach(el => el.classList.add('bg-indigo-50', 'opacity-100'));
-        SrWorkGuideArea.forEach(el => el.classList.remove('bg-white'));
-        SrCutGuideArea.forEach(el => el.classList.remove('bg-red-50', 'border-solid', 'border-red-300'));
-        SrSafeGuideArea.forEach(el => el.classList.remove('bg-green-50', 'border-solid', 'border-green-300'));
-        SrWorkGuideDic.forEach(el => el.classList.remove('bg-white', 'opacity-0'));
+        addClasses(SrWorkGuideArea, 'bg-indigo-50');
+        addClasses(SrCutGuideArea, 'bg-indigo-50', 'border-gray-500', 'border-dashed');
+        addClasses(SrSafeGuideArea, 'bg-indigo-50', 'border-gray-500', 'border-dashed');
+        addClasses(SrWorkGuideDic, 'bg-indigo-50', 'opacity-100');
+
+        removeClasses(SrWorkGuideArea, 'bg-white');
+        removeClasses(SrCutGuideArea, 'bg-red-50', 'border-solid', 'border-red-300');
+        removeClasses(SrSafeGuideArea, 'bg-green-50', 'border-solid', 'border-green-300');
+        removeClasses(SrWorkGuideDic, 'bg-white', 'opacity-0');
     }
 
     // 제단영역 이벤트 설정
     function handleMouseEnterCutArea() {
-        SrCutGuideArea.forEach(el => el.classList.add('bg-red-100'));
-        SrSafeGuideArea.forEach(el => el.classList.add('bg-red-100', 'border-dashed', 'border-gray-500'));
-        SrCutGuideDic.forEach(el => el.classList.add('bg-red-100', 'opacity-100'));
-        SrCutGuideArea.forEach(el => el.classList.remove('bg-red-50'));
-        SrSafeGuideArea.forEach(el => el.classList.remove('bg-green-50', 'border-solid', 'border-green-300'));
-        SrCutGuideDic.forEach(el => el.classList.remove('bg-white', 'opacity-0'));
+        addClasses(SrCutGuideArea, 'bg-red-100');
+        addClasses(SrSafeGuideArea, 'bg-red-100', 'border-dashed', 'border-gray-500');
+        addClasses(SrCutGuideDic, 'bg-red-100', 'opacity-100');
+
+        removeClasses(SrCutGuideArea, 'bg-red-50');
+        removeClasses(SrSafeGuideArea, 'bg-green-50', 'border-solid', 'border-green-300');
+        removeClasses(SrCutGuideDic, 'bg-white', 'opacity-0');
     }
 
     // 안전영역 이벤트 설정
     function handleMouseEnterSafeArea() {
-        SrSafeGuideArea.forEach(el => el.classList.add('bg-green-100'));
-        SrSafeGuideDic.forEach(el => el.classList.add('bg-green-100', 'opacity-100'));
-        SrCutGuideArea.forEach(el => el.classList.add('border-gray-500', 'border-dashed'));
-        SrCutGuideArea.forEach(el => el.classList.remove('bg-red-50', 'border-solid', 'border-red-300'));
-        SrSafeGuideArea.forEach(el => el.classList.remove('bg-green-50'));
-        SrSafeGuideDic.forEach(el => el.classList.remove('bg-white', 'opacity-0'));
+        addClasses(SrSafeGuideArea, 'bg-green-100');
+        addClasses(SrSafeGuideDic, 'bg-green-100', 'opacity-100');
+        addClasses(SrCutGuideArea, 'border-gray-500', 'border-dashed');
+
+        removeClasses(SrCutGuideArea, 'bg-red-50', 'border-solid', 'border-red-300');
+        removeClasses(SrSafeGuideArea, 'bg-green-50');
+        removeClasses(SrSafeGuideDic, 'bg-white', 'opacity-0');
     }
 
     // 각 NodeList에 대해 이벤트 리스너 추가
@@ -272,7 +286,8 @@ function handleError(error) {
     // 원래 클래스로 복원하는 함수
     function restoreClasses(elements, originalClasses) {
         elements.forEach(element => {
-            element.className = originalClasses[element.classList[0]]; // 첫 번째 클래스 이름을 키로 사용하여 복원
+            const originalIndex = element.dataset.originalIndex;
+            element.className = originalClasses[originalIndex];
         });
     }
 

@@ -5,41 +5,181 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>notification</title>
-
-    <!-- 스타일 시트 -->
-    <link rel="stylesheet" href="/src/style-v1.css" />
-
-    <!-- --------------------------------------------------------------------------------------- -->
-    <!-- 테일윈드 임포트 -->
-    <link href="/src/output.css" rel="stylesheet">
-    <!-- 에니메이트 css 임포트 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <!-- 어도비 웹폰트 임포트 -->
-    <link rel="stylesheet" href="https://use.typekit.net/tbw3kzi.css">
-    <!-- --------------------------------------------------------------------------------------- -->
 </head>
 
 <body>
-    <div class="flex justify-center z-0 Relative">
-        <!-- 데스크톱 레이아웃 -->
-        <div class="flex-col space-y-24 w-full desktop z-10">
-            <div class="sr-empty"></div>
-            <p>데에스으크으토오오옵</p>
-            <div class="sr-empty"></div>
-        </div>
-        <!-- 타블렛 레이아웃 -->
-        <div class="flex-col space-y-24 w-full tablet z-10">
-            <div class="sr-empty"></div>
-            <p>타아아아아아아뿔렛</p>
-            <div class="sr-empty"></div>
-        </div>
-        <!-- 모바일 레이아웃 -->
-        <div class="flex-col space-y-24 w-full mobile z-10">
-            <div class="sr-empty"></div>
-            <p>묘발</p>
-            <div class="sr-empty"></div>
+    <div class="h-28"></div>
+    <div class="relative z-0 flex justify-center">
+        <div class="z-10 flex-col w-full max-w-4xl space-y-24">
+            <div
+                class="relative flex flex-col items-center justify-center px-8 py-4 overflow-hidden bg-white rounded-md drop-shadow-md">
+                <!-- 팝업용 스크린 시작 -->
+                <div class="absolute inset-0 z-20 hidden w-full h-full ease-in-out bg-black bg-opacity-50 NotiPUScreen">
+                </div>
+                <!-- 팝업용 스크린 종료 -->
+                <p class="text-xl font-bold text-center">제품에 관한 안내</p>
+                <p class="text-sm text-center">
+                    <span class="bg-[#F39D26] rounded text-white p-0.5">강조된 영역</span> 을 클릭해 예시를 확인해보세요.
+                </p>
+                <!-- 여기서 부터 안내 -->
+                <div class="flex">
+                    <ul class="z-10 px-4 py-8 space-y-6 tracking-tight list-disc">
+                        <li class="hidden GuideUni">컴퓨터 작업물과 인쇄물 사이에 색상 차이가 발생할 수 있습니다.
+                            <br> 모니터에 따라 결과물의 색상이 다르기에 저희는 우선 저희가 보유중인 모니터를 기준으로 색상 체크를 진행합니다.
+                            <br>
+                            <p
+                                class="text-center font-semibold italic underline underline-offset-4 decoration-2 decoration-dashed decoration-[#F39D26] py-2">
+                                "정확한 색상 인쇄를 원하신다면 색상 감리를 요청해주세요."
+                            </p>
+                            <p class="text-sm text-end">*색상 감리에는 추가 비용이 발생할 수 있습니다.</p>
+                        </li>
+                        <li class="hidden NotiPin">백색잉크와 컬러잉크의 출력면이 서로 일치하지 않는
+                            <button id="NotiPinBT" class="bg-[#F39D26] rounded text-white px-1">
+                                인쇄 밀림
+                            </button>이
+                            발생할 수 있습니다.
+                            <br> 해당 문제 방지를 위해 백색인쇄면을 컬러 인쇄면보다 작게 만들어주세요.
+                            <p
+                                class="text-center font-semibold italic underline underline-offset-4 decoration-2 decoration-dashed decoration-[#F39D26] py-2">
+                                "자세한 방법은 화이트 가이드를 참조하세요."
+                            </p>
+                        </li>
+                        <li class="hidden NotiEdge">
+                            <p>
+                                아크릴이 절단 특성상 절단 시작점과 끝점이
+                                <button id="NotiEdgeBT" class="bg-[#F39D26] rounded text-white px-1">
+                                    일치하지 않을 수 있습니다
+                                </button>. 또한 레이저 가공 특성상 절단면이
+                                <button id="NotiWaveBT" class="bg-[#F39D26] rounded text-white px-1">
+                                    물결질 수 있습니다.
+                                </button>
+                            </p>
+                        </li>
+                        <li class="hidden NotiDust">
+                            인쇄시 유입된 먼지등으로 인해 인쇄면에
+                            <button id="NotiDustBT" class="bg-[#F39D26] rounded text-white px-1">
+                                구멍
+                            </button>이 생길 수 있습니다.
+                        </li>
+                        <li class="hidden NotiCoating">
+                            <p>
+                                제작 및 취급과정에서 코팅 표면에
+                                <button id="NotiCoatingBT" class="bg-[#F39D26] rounded text-white px-1">
+                                    미세한 상처
+                                </button>가 생길 수 있습니다.
+                            </p>
+                        </li>
+                        <li class="hidden Guide GuideUni">
+                            <p>
+                                인쇄 및 재단시 오차로 인해 인쇄물의 위치가 전부 동일하지 않을 수 있습니다.
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 여기서 부터 팝업 -->
+                <div id="NotiPinPU"
+                    class="absolute z-30 hidden p-4 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-md top-1/2 left-1/2 drop-shadow-md animate-slide-up">
+                    <div class="mb-2 bg-cover rounded-md bg-HipduckNoti-whitepin aspect-square h-80"></div>
+                    <div class="text-base text-center">
+                        <button class="NotiCloseBtn bg-[#F39D26] rounded-full inline-block px-4 text-white font-thin">
+                            닫기
+                        </button>
+                    </div>
+                </div>
+                <div id="NotiEdgePU"
+                    class="absolute z-30 hidden p-4 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-md top-1/2 left-1/2 drop-shadow-md animate-slide-up">
+                    <div class="mb-2 bg-cover rounded-md bg-HipduckNoti-edge aspect-square h-80"></div>
+                    <div class="text-base text-center">
+                        <button class="NotiCloseBtn bg-[#F39D26] rounded-full inline-block px-4 text-white font-thin">
+                            닫기
+                        </button>
+                    </div>
+                </div>
+                <div id="NotiWavePU"
+                    class="absolute z-30 flex flex-col hidden p-4 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-md top-1/2 left-1/2 drop-shadow-md animate-slide-up">
+                    <div class="mb-2 bg-cover rounded-md bg-HipduckNoti-wave aspect-square h-80"></div>
+                    <div class="text-base text-center">
+                        <button class="NotiCloseBtn bg-[#F39D26] rounded-full inline-block px-4 text-white font-thin">
+                            닫기
+                        </button>
+                    </div>
+                </div>
+                <div id="NotiDustPU"
+                    class="absolute z-30 flex flex-col hidden p-4 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-md top-1/2 left-1/2 drop-shadow-md animate-slide-up">
+                    <div class="mb-2 bg-cover rounded-md bg-HipduckNoti-dust aspect-square h-80"></div>
+                    <div class="text-base text-center">
+                        <button class="NotiCloseBtn bg-[#F39D26] rounded-full inline-block px-4 text-white font-thin">
+                            닫기
+                        </button>
+                    </div>
+                </div>
+                <div id="NotiCoatingPU"
+                    class="absolute z-30 flex flex-col hidden p-4 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-md top-1/2 left-1/2 drop-shadow-md animate-slide-up">
+                    <div class="mb-2 bg-cover rounded-md bg-HipduckNoti-coating aspect-square h-80"></div>
+                    <div class="text-base text-center">
+                        <button class="NotiCloseBtn bg-[#F39D26] rounded-full inline-block px-4 text-white font-thin">
+                            닫기
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <div class="h-28"></div>
+
+    <!-- 스크립트 -->
+    <script>
+        // 버튼 클릭 이벤트 핸들러 등록
+        document.getElementById('NotiPinBT').addEventListener('click', function () {
+            document.getElementById('NotiPinPU').classList.remove('hidden');
+            document.getElementById('NotiPinPU').classList.remove('animate-slide-down');
+            document.getElementById('NotiPinPU').classList.add('animate-slide-up');
+            document.querySelector('.NotiPUScreen').classList.remove('hidden');
+        });
+
+        document.getElementById('NotiEdgeBT').addEventListener('click', function () {
+            document.getElementById('NotiEdgePU').classList.remove('hidden');
+            document.getElementById('NotiEdgePU').classList.remove('animate-slide-down');
+            document.getElementById('NotiEdgePU').classList.add('animate-slide-up');
+            document.querySelector('.NotiPUScreen').classList.remove('hidden');
+        });
+
+        document.getElementById('NotiWaveBT').addEventListener('click', function () {
+            document.getElementById('NotiWavePU').classList.remove('hidden');
+            document.getElementById('NotiWavePU').classList.remove('animate-slide-down');
+            document.getElementById('NotiWavePU').classList.add('animate-slide-up');
+            document.querySelector('.NotiPUScreen').classList.remove('hidden');
+        });
+
+        document.getElementById('NotiDustBT').addEventListener('click', function () {
+            document.getElementById('NotiDustPU').classList.remove('hidden');
+            document.getElementById('NotiDustPU').classList.remove('animate-slide-down');
+            document.getElementById('NotiDustPU').classList.add('animate-slide-up');
+            document.querySelector('.NotiPUScreen').classList.remove('hidden');
+        });
+
+        document.getElementById('NotiCoatingBT').addEventListener('click', function () {
+            document.getElementById('NotiCoatingPU').classList.remove('hidden');
+            document.getElementById('NotiCoatingPU').classList.remove('animate-slide-down');
+            document.getElementById('NotiCoatingPU').classList.add('animate-slide-up');
+            document.querySelector('.NotiPUScreen').classList.remove('hidden');
+        });
+
+        // 닫기 버튼 클릭 이벤트 핸들러 등록
+        document.querySelectorAll('.NotiCloseBtn').forEach(function (button) {
+            button.addEventListener('click', function () {
+                const modal = button.closest('.absolute.z-30');
+                modal.classList.remove('animate-slide-up');
+                modal.classList.add('animate-slide-down');
+
+                modal.addEventListener('animationend', () => {
+                    modal.classList.add('hidden');
+                }, { once: true });
+
+                document.querySelector('.NotiPUScreen').classList.add('hidden');
+            });
+        });
+    </script>
 </body>
 
 </html>
